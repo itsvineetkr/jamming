@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    /* --font-family: "Roboto", sans-serif; */
+    --font-family: "Montserrat", sans-serif;
+
+    /* Background Colors */
+    --color-bg-dark: #000000;
+    --color-bg-medium: #111111;
+    --color-bg-light: #181818;
+
+    /* Text Colors */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #d9d9d9;
+    --color-text-muted: #b3b3b3;
+
+    /* Button Colors */
+    --color-btn-primary: #ffffff;
+    --color-btn-secondary: #cccccc;
+
+    /* Accent Colors */
+    --color-accent-green: #1db954;
+    --color-accent-blue: #3498db;
+    --color-accent-red: #e74c3c;
+
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-overlay: rgba(255, 255, 255, 0.05);
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background: linear-gradient(135deg, var(--color-bg-dark), var(--color-bg-medium), var(--color-bg-light));
+    color: var(--color-text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h3{
+    font-weight: 300;
+}
+
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(18, 18, 18, 0.6);
+    border-radius: 15px;
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.section {
+    background: rgba(18, 18, 18, 0.6);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.section h2 {
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.player {
+    grid-column: span 2;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.current-song {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: var(--color-text-secondary);
+    min-height: 1.5em;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    background: none;
+    border: none;
+    color: var(--color-btn-primary);
+    font-size: 24px; /* Adjust size for FontAwesome icons */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.btn:hover {
+    color: var(--color-btn-secondary);
+}
+
+.progress-container {
+    margin: 20px 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-accent-green), var(--color-accent-blue));
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: var(--color-text-muted);
+}
+
+.song-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.song-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 8px;
+    background: var(--color-overlay);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.song-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.song-name {
+    flex: 1;
+    margin-right: 15px;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--color-text-primary);
+}
+
+.song-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.small-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 15px;
+    background: none;
+    color: var(--color-btn-secondary);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+}
+
+.download-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-direction: column;
+}
+
+.url-input {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: var(--color-text-primary);
+    font-size: 14px;
+}
+
+.url-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.status {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+.status.success {
+    background: rgba(29, 185, 84, 0.15);
+    color: var(--color-accent-green);
+    border: 1px solid var(--color-accent-green);
+}
+
+.status.error {
+    background: rgba(231, 76, 60, 0.15);
+    color: var(--color-accent-red);
+    border: 1px solid var(--color-accent-red);
+}
+
+.connection-status {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: rgba(231, 76, 60, 0.15);
+    border: 1px solid var(--color-accent-red);
+    color: var(--color-accent-red);
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.connection-status.connected {
+    background: rgba(29, 185, 84, 0.15);
+    border-color: var(--color-accent-green);
+    color: var(--color-accent-green);
+}
+
+@media (max-width: 768px) {
+    .connection-status {
+        position: relative;
+        padding: 10px 15px;
+        right: 0px;
+        top: 0px;
+        margin: 20px auto 0px auto;
+        max-width: 90vw;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .btn {
+        width: auto;
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, var(--color-accent-green), var(--color-accent-blue));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, var(--color-accent-green), var(--color-accent-blue));
+}
+
+
+.downloadBtn{
+    padding: 10px 15px;
+    border-radius: 10px;
+    border:1px solid var(--color-border);
+    font-size: 14px;
+}
