@@ -16,3 +16,4 @@ typing_extensions==4.15.0
 uvicorn==0.35.0
 websockets==15.0.1
 yt-dlp==2025.9.5
+gunicorn
