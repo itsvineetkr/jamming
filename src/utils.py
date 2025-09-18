@@ -19,7 +19,6 @@ def get_youtube_cookies():
 
 def download_youtube_audio(video_url: str):
     """Downloads audio from a YouTube video and saves it as an MP3 file with the video's title."""
-    cookies = get_youtube_cookies()
     ydl_opts = {
         "format": "bestaudio/best",
         "extractaudio": True,
