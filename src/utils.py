@@ -24,8 +24,8 @@ def download_youtube_audio(video_url: str):
         "format": "bestaudio/best",
         "extractaudio": True,
         "audioformat": "mp3",
-        "cookiefile": None,
-        "cookiejar": cookies,
+        # "cookiefile": None,
+        # "cookiejar": cookies,
         "outtmpl": str(AUDIO_DIR / "%(title)s.%(ext)s"),
         "postprocessors": [
             {
@@ -34,6 +34,7 @@ def download_youtube_audio(video_url: str):
                 "preferredquality": "320",
             }
         ],
+        "cookiesfrombrowser": ("chrome",)
     }
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
