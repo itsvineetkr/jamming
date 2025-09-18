@@ -3,11 +3,13 @@ anyio==4.10.0
 browser-cookie3==0.20.1
 click==8.2.1
 fastapi==0.116.1
+gunicorn==23.0.0
 h11==0.16.0
 idna==3.10
 Jinja2==3.1.6
 lz4==4.4.4
 MarkupSafe==3.0.2
+packaging==25.0
 pathlib==1.0.1
 pycryptodomex==3.23.0
 pydantic==2.11.9
