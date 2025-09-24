@@ -10,21 +10,41 @@ audio_state = AudioState()
 
 AUDIO_DIR = Path("audio_files")
 STATIC_DIR = Path("static")
+COOKIE_FILE = STATIC_DIR / "cookies.txt"
 
 
-def get_youtube_cookies():
-    cj = browser_cookie3.chrome(domain_name=".youtube.com")
-    return cj
+# def download_youtube_audio(video_url: str):
+#     """Downloads audio from a YouTube video and saves it as an MP3 file with the video's title."""
+#     ydl_opts = {
+#         "format": "bestaudio/best",
+#         "extractaudio": True,
+#         "audioformat": "mp3",
+#         # "cookiefile": None,
+#         # "cookiejar": cookies,
+#         "outtmpl": str(AUDIO_DIR / "%(title)s.%(ext)s"),
+#         "postprocessors": [
+#             {
+#                 "key": "FFmpegExtractAudio",
+#                 "preferredcodec": "mp3",
+#                 "preferredquality": "320",
+#             }
+#         ],
+#         "cookiesfrombrowser": ("chrome",)
+#     }
 
+#     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+#         info_dict = ydl.extract_info(video_url, download=True)
+#         title = info_dict.get("title", "output")
+
+#     return f"{title}.mp3"
 
 def download_youtube_audio(video_url: str):
     """Downloads audio from a YouTube video and saves it as an MP3 file with the video's title."""
+
     ydl_opts = {
         "format": "bestaudio/best",
         "extractaudio": True,
         "audioformat": "mp3",
-        # "cookiefile": None,
-        # "cookiejar": cookies,
         "outtmpl": str(AUDIO_DIR / "%(title)s.%(ext)s"),
         "postprocessors": [
             {
@@ -33,8 +53,10 @@ def download_youtube_audio(video_url: str):
                 "preferredquality": "320",
             }
         ],
-        "cookiesfrombrowser": ("chrome",)
     }
+
+
+    ydl_opts["cookiefile"] = str(COOKIE_FILE)
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info_dict = ydl.extract_info(video_url, download=True)
